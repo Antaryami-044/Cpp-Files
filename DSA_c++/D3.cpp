@@ -1,4 +1,6 @@
 #include<iostream>
+#include<vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -47,12 +49,43 @@ void mergesort(int arr[], int l, int r) {
       sort(arr, l, mid, r);
 }
 
+int partition(vector<int> &arr, int low, int high) {
+      int pivot = arr[low];
+      int i = low+1;
+      int j = high;
+
+      while(i <= j) {
+            while(arr[i] <= pivot && i <= high){
+                  i++;
+            }
+            while(arr[j] > pivot && j >= low+1) {
+                  j--;
+            }
+            if(i < j) {
+                  swap(arr[i], arr[j]);
+            }
+      }
+      swap(arr[low], arr[j]);
+      return j;
+}
+
+void quicksort (vector<int>& arr, int low, int high) {
+      if(low < high){
+            int partIndex = partition(arr, low, high);
+            quicksort(arr, low, partIndex-1);
+            quicksort(arr, partIndex + 1, high);
+      }
+}
+
 int main() {
 
-      int arr[] = {5, 2, 3, 2, 1, 8, 4, 7, 6};
-      int size = sizeof(arr) / sizeof(arr[0]);
-      mergesort(arr, 0, size - 1);
-      for(int i=0; i< size; i++) {
+      vector<int> arr= {5, 2, 3, 2, 1, 8, 4, 7, 6};
+
+      // mergesort(arr, 0, size - 1);             // we can it also using vector....
+
+      quicksort(arr, 0, arr.size());
+
+      for(int i=0; i< arr.size(); i++) {
             cout << arr[i] << " ";
       }
       return 0;
