@@ -60,7 +60,41 @@ vector<int> mergeArrays(vector<int>& a, vector<int>& b) {
     return merged;
 }
 
+vector<int> mergeArraysIntersection(vector<int>& a, vector<int>& b) {
+    int i = 0, j = 0;
+    vector<int> merged;
+    while(i < a.size() && j < b.size()) {
+        int val;
+        if(a[i] == b[j]){
+            val = a[i++];
+        } else if(a[i] > b[j]){
+            j++;
+        } else {
+            i++;
+        }
 
+
+        if(merged.empty() || merged.back() != val) {
+            merged.push_back(val);
+        }
+    }
+
+    // while(i < a.size()){
+    //     if(merged.empty() || merged.back() != a[i]) {
+    //         merged.push_back(a[i]);
+    //     }
+    //     i++;
+    // }
+
+    // while(j < b.size()){
+    //     if(merged.empty() || merged.back() != b[j]) {
+    //         merged.push_back(b[j]);
+    //     }
+    //     j++;
+    // }
+    
+    return merged;
+}
 
 int main(){
     // int n;
@@ -106,8 +140,14 @@ int main(){
         cin >> c[i];
     }
 
-    vector<int> mergedArray = mergeArrays(b, c);  
-    cout << "Merged array: ";
+    // vector<int> mergedArray = mergeArrays(b, c);  
+    // cout << "Merged array union: ";
+    // for(int i = 0; i < mergedArray.size(); i++) {
+    //     cout << mergedArray[i] << " ";
+    // }
+
+    vector<int> mergedArray = mergeArraysIntersection(b, c);    
+    cout << "Merged array intersection : ";
     for(int i = 0; i < mergedArray.size(); i++) {
         cout << mergedArray[i] << " ";
     }
