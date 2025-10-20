@@ -81,6 +81,25 @@ vector<int> removeDuplicates(vector<int> &arr)
     return temp;
 }
 
+vector<int> rotateArray(vector<int> &arr, int k) // up to d places
+{
+    // int n = arr.size();
+    // k = k % n; 
+    // vector<int> rotatedArr(n);
+    // for (int i = 0; i < n; i++)
+    // {
+    //     rotatedArr[(i + k) % n] = arr[i];
+    // }
+    // return rotatedArr;
+
+    k = k % arr.size();
+    
+    reverse(arr.begin(), arr.begin() + k);
+    reverse(arr.begin() + k, arr.end());
+    reverse(arr.begin(), arr.end());
+    return arr;
+}
+
 int main()
 {
     vector<int> arr = {1, 3, 8, 7, 9, 2, 5, 6, 4, 3, 8, 1};
@@ -102,5 +121,13 @@ int main()
     for(int i = 0; i < uniqueArr.size(); i++) {
         cout << uniqueArr[i] << " ";
     }
+
+    cout << endl;
+    
+    vector<int> copy = rotateArray(arr, 3);
+    for(auto i : copy) {
+        cout << i << " ";
+    }
+
     return 0;
 }
