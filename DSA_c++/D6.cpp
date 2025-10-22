@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include<map>
 using namespace std;
 
 void findMissingNumber(vector<int> &arr, int n)
@@ -56,18 +57,36 @@ int findSignleOccur(vector<int> &arr)
     return XOR;
 }
 
+int singleOccur(vector<int> &arr) { // second method
+    map<int, int> mapArr;
+    for(auto it: arr){
+        mapArr[it]++;
+    }
+    for(auto it : mapArr){
+        if(it.second == 1){
+            return it.first;
+        }
+    }
+}
+
 int main()
 {
     vector<int> arr = {1, 2, 4, 5, 6};
     vector<int> arr2 = {1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1};
     vector<int> arr3 = {2, 3, 5, 4, 3, 5, 2};
 
-    cout << "The element occuring once is: " << findSignleOccur(arr3) << endl;
-    findMaxCon(arr2);
-    
+    // cout << "The element occuring once is: " << findSignleOccur(arr3) << endl;
+
+    cout << "The element occuring once is: " << singleOccur(arr3) << endl;
+
+    // findMaxCon(arr2);
+
+
+
     int n = 6; // Since numbers are from 1 to 6
-    findMissingNumber(arr, n);
-    usingXOR(arr, n);
+    
+    // findMissingNumber(arr, n);
+    // usingXOR(arr, n);
 
     return 0;
 }
