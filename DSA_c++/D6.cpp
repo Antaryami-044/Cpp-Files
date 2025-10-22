@@ -61,8 +61,10 @@ int main()
     vector<int> arr = {1, 2, 4, 5, 6};
     vector<int> arr2 = {1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1};
     vector<int> arr3 = {2, 3, 5, 4, 3, 5, 2};
+
     cout << "The element occuring once is: " << findSignleOccur(arr3) << endl;
     findMaxCon(arr2);
+    
     int n = 6; // Since numbers are from 1 to 6
     findMissingNumber(arr, n);
     usingXOR(arr, n);
