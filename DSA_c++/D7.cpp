@@ -28,6 +28,7 @@ void longestSubArr2(vector<int> &arr, int n, int k){
             if(sum == k){
                   len = max(len, i+1);
             }
+            
             long long rem = sum - k;
             if(sumMap.find(rem) != sumMap.end()){
                   len = max(len, i - sumMap[rem]);
