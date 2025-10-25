@@ -46,7 +46,7 @@ void longestSubArr3(vector<int> &arr, int n, int k){
       int len = 0;
       while(right < n){
             sum += arr[right];
-            while(sum > k){
+            while(left < right && sum > k){
                   sum -= arr[left];
                   left++;
             }
