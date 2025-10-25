@@ -72,6 +72,22 @@ void twoSum(vector<int> &arr, int n, int k){
       }
 }
 
+void twoSum2(vector<int> &arr,int n, int k){
+      int left = 0, right = n-1;
+      while(left < right){
+            int sum = arr[left] + arr[right];
+            if(sum < k){
+                  left++;
+            } else if(sum > k){
+                  right--;
+            } else {
+                  cout << left << " "<< right << endl;
+                  // left++;
+            }
+
+      }
+}
+
 int main() {
       vector<int> arr = {2,0,0,3};
       vector<int> arr2 = {2,7,11,15};
@@ -85,6 +101,7 @@ int main() {
       longestSubArr2(arr, n, k);
       longestSubArr3(arr, n, k);
       twoSum(arr2, n, k1);
+      twoSum2(arr2, n, k1);
 
       // return 0;
 }
