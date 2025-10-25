@@ -58,12 +58,33 @@ void longestSubArr3(vector<int> &arr, int n, int k){
       cout<<len<<endl;
 }
 
+
+void twoSum(vector<int> &arr, int n, int k){
+      map<int, int> m;
+      for(int i=0; i<n; i++){
+            int r = k - arr[i];
+            if(m.find(r) != m.end()){
+                  // cout<< i << " " << m[r] << endl;
+                  cout<< m[r] << " " << i << endl;
+            } else {
+                  m[arr[i]] = i;
+            }
+      }
+}
+
 int main() {
       vector<int> arr = {2,0,0,3};
+      vector<int> arr2 = {2,7,11,15};
+
       int k = 3;
+      int k1 = 17;
+
       int n = arr.size();
+
       longestSubarray(arr, n, k);
       longestSubArr2(arr, n, k);
       longestSubArr3(arr, n, k);
+      twoSum(arr2, n, k1);
+
       // return 0;
 }
