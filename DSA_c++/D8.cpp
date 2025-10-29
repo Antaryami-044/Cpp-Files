@@ -71,10 +71,37 @@ void majorityElement(vector<int> &arr, int n)
       }
 }
 
+void kadensalgo(vector<int> &arr, int n){
+      int sum = 0;
+      int st = -1;
+      int end = -1;
+      int max = INT16_MIN;
+
+      for(int i=0; i<n;i++){
+            sum += arr[i];
+            if(sum < 0){
+                  sum = 0;
+                  st = i+1;
+            }
+
+            if(sum > max){
+                  max = sum;
+                  end = i;
+            }
+      }
+      cout<<"Maximum Subarray Sum is: "<<max<<endl;
+      cout<<"Starting Index: "<<st<<endl;
+      cout<<"Ending Index: "<<end<<endl;
+}
+
+
 int main()
 {
 
       vector<int> arr = {0, 1, 2, 0, 1, 2, 1, 0, 2, 1, 0};
+      vector<int> arr2 = {-2, -3, 4, -1, -2, 1, 5, -3};
+
+      int p = arr2.size();
       int n = arr.size();
       // shortZeroOneTwo(arr, n);
 
@@ -82,5 +109,6 @@ int main()
       int m = arr1.size();
       majorityElement(arr1, m);
 
+      kadensalgo(arr2, p);
       return 0;
 }
