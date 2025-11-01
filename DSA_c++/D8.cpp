@@ -104,22 +104,81 @@ void buysellProblem(vector<int> &arr, int n){
       cout<<"Maximum Profit is: "<< profit <<endl;
 }
 
+void rearrangeArray(vector<int> &arr, int n){
+      vector<int> temp(n);
+      int pos = 0;
+      int neg = 1;
+      for(int i=0; i<n; i++){
+            if(arr[i] >=0){
+                  temp[pos] = arr[i];
+                  pos +=2;
+            } else{
+                  temp[neg] = arr[i];
+                  neg += 2;
+            }
+      }
+      for(int i=0; i<n; i++){
+            arr[i] = temp[i];
+      }
+      for(int i=0; i<n; i++){
+            cout<<arr[i]<<" ";
+      }
+}
+
+void rearrangeArray2(vector<int> &arr, int n){
+      vector<int> pos;
+      vector<int> neg;
+      for(int i=0; i<n; i++){
+            if(arr[i] >=0){
+                  pos.push_back(arr[i]);
+            } else{
+                  neg.push_back(arr[i]);
+            }
+      }
+      int idx = 0;
+      int pIdx = 0;
+      int qIdx = 0;
+      int rem = min(pos.size(), neg.size());
+      while(pIdx < rem && qIdx < rem){
+            arr[idx++] = pos[pIdx++];
+            arr[idx++] = neg[qIdx++];
+      }
+
+      while(pIdx < pos.size()) {
+            arr[idx++] = pos[pIdx++];
+      } 
+      
+      while (qIdx < neg.size()){
+      arr[idx++] = neg[qIdx++];
+      }
+
+      for(int i=0; i<n; i++){
+            cout << arr[i] << " ";
+      }
+}
+
 int main()
 {
       vector<int> arr = {0, 1, 2, 0, 1, 2, 1, 0, 2, 1, 0};
       vector<int> arr1 = {2, 2, 1, 1, 1, 2, 2};
       vector<int> arr2 = {-2, -3, 4, -1, -2, 1, 5, -3};
       vector<int> arr3 = {7,1,5,3,6,4};
+      vector<int> arr4 = {3, -2, 5, -1, 6, -3, 2, -4};
+      vector<int> arr5 = { -5, -2, -3, 4, 6, -1, 2, -4};
 
       int p = arr2.size();
       int n = arr.size();
       int m = arr1.size();
       int q = arr3.size();
+      int r = arr4.size();
+      int s = arr5.size();
       
-      shortZeroOneTwo(arr, n);
-      majorityElement(arr1, m);
-      kadensalgo(arr2, p);
-      buysellProblem(arr3, q);
+      // shortZeroOneTwo(arr, n);
+      // majorityElement(arr1, m);
+      // kadensalgo(arr2, p);
+      // buysellProblem(arr3, q);
+      // rearrangeArray(arr4, r);
+      // rearrangeArray2(arr5, s);
 
       return 0;
 }
