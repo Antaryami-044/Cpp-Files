@@ -94,20 +94,32 @@ void kadensalgo(vector<int> &arr, int n){
       cout<<"Ending Index: "<<end<<endl;
 }
 
+void buysellProblem(vector<int> &arr, int n){
+      int profit = 0;
+      int mini = arr[0];
+      for(int i=0; i<n; i++){
+            profit = max(profit, arr[i]-mini);
+            mini = min(mini, arr[i]);
+      }
+      cout<<"Maximum Profit is: "<< profit <<endl;
+}
 
 int main()
 {
       vector<int> arr = {0, 1, 2, 0, 1, 2, 1, 0, 2, 1, 0};
       vector<int> arr1 = {2, 2, 1, 1, 1, 2, 2};
       vector<int> arr2 = {-2, -3, 4, -1, -2, 1, 5, -3};
+      vector<int> arr3 = {7,1,5,3,6,4};
 
       int p = arr2.size();
       int n = arr.size();
       int m = arr1.size();
+      int q = arr3.size();
       
       shortZeroOneTwo(arr, n);
       majorityElement(arr1, m);
       kadensalgo(arr2, p);
+      buysellProblem(arr3, q);
 
       return 0;
 }
