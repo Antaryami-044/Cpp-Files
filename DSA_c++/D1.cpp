@@ -163,29 +163,29 @@ void reverseArray(int arr[], int n, int i){
 
 int main()
 {
-      // cout << numCount(345) << endl;
+      cout << numCount(345) << endl;
 
-      // cout << revNum(345) << endl;
+      cout << revNum(345) << endl;
 
-      // cout << palindrome(11) << endl;
+      cout << palindrome(11) << endl;
 
-      // cout << amstrongNum(153) << endl;
+      cout << amstrongNum(153) << endl;
 
-      // printDivision(36);
+      printDivision(36);
 
-      // countPrime(103);
+      countPrime(103);
 
-      // gcd_hcf(10, 13);
+      gcd_hcf(10, 13);
 
-      // recursion(5, 10);
+      recursion(5, 10);
 
-      // cout << factorial(5) << endl;
+      cout << factorial(5) << endl;
 
-      // int arr[5] = {1, 2, 3, 4, 5};
-      // reverseArray(arr, 5, 0);
-      // for(int i=0; i<5; i++){
-      //       cout << arr[i] << " ";
-      // }
+      int arr[5] = {1, 2, 3, 4, 5};
+      reverseArray(arr, 5, 0);
+      for(int i=0; i<5; i++){
+            cout << arr[i] << " ";
+      }
 
       return 0;
 }
