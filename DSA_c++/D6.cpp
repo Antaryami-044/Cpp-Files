@@ -79,14 +79,12 @@ int main()
 
     cout << "The element occuring once is: " << singleOccur(arr3) << endl;
 
-    // findMaxCon(arr2);
-
-
+    findMaxCon(arr2);
 
     int n = 6; // Since numbers are from 1 to 6
     
-    // findMissingNumber(arr, n);
-    // usingXOR(arr, n);
+    findMissingNumber(arr, n);
+    usingXOR(arr, n);
 
     return 0;
 }
