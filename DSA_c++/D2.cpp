@@ -72,13 +72,13 @@ int main(){
       int arr[] = {5,24, 50, 3, 5, 24};
       int n = sizeof(arr)/sizeof(arr[0]);
 
-      // countNum(arr, n);
+      countNum(arr, n);
 
-      // seectionSort(arr, n);
+      seectionSort(arr, n);
 
-      // insertionSort(arr, n);
+      insertionSort(arr, n);
 
-      // bubbleSort(arr, n);
+      bubbleSort(arr, n);
 
       for(int i=0; i<n; i++){
             cout << arr[i] << " ";
