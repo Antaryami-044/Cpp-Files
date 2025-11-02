@@ -97,29 +97,29 @@ vector<int> mergeArraysIntersection(vector<int>& a, vector<int>& b) {
 }
 
 int main(){
-    // int n;
-    // cout << "Enter the size of the array: ";    
-    // cin >> n;
-    // vector<int> arr(n);
-    // cout << "Enter the elements of the array: ";
-    // for(int i = 0; i < n; i++) {
-    //     cin >> arr[i];
-    // }
-    // vector<int> result = moveZeros(arr, n);
-    // cout << "Array after moving zeros to the end: ";
-    // for(int i = 0; i < n; i++) {
-    //     cout << result[i] << " ";
-    // }
+    int n;
+    cout << "Enter the size of the array: ";    
+    cin >> n;
+    vector<int> arr(n);
+    cout << "Enter the elements of the array: ";
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    vector<int> result = moveZeros(arr, n);
+    cout << "Array after moving zeros to the end: ";
+    for(int i = 0; i < n; i++) {
+        cout << result[i] << " ";
+    }
 
-    // int key;
-    // cout << "\nEnter the key to search: ";      
-    // cin >> key;
-    // int index = linearSearch(arr, n, key);  
-    // if(index != -1) {
-    //     cout << "Element found at index: " << index << endl;
-    // } else {
-    //     cout << "Element not found in the array." << endl;
-    // }
+    int key;
+    cout << "\nEnter the key to search: ";      
+    cin >> key;
+    int index = linearSearch(arr, n, key);  
+    if(index != -1) {
+        cout << "Element found at index: " << index << endl;
+    } else {
+        cout << "Element not found in the array." << endl;
+    }
 
 
     int m;
