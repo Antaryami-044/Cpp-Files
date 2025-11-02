@@ -81,8 +81,8 @@ int main() {
 
       vector<int> arr= {5, 2, 3, 2, 1, 8, 4, 7, 6};
 
-      // mergesort(arr, 0, size - 1);             // we can it also using vector....
-
+      // mergesort(arr, 0, size - 1);             //  we can it also using vector.... 
+                                                  //  also chnge in function while doing the code or implementation
       quicksort(arr, 0, arr.size());
 
       for(int i=0; i< arr.size(); i++) {
