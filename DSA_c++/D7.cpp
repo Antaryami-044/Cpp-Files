@@ -103,5 +103,5 @@ int main() {
       twoSum(arr2, n, k1);
       twoSum2(arr2, n, k1);
 
-      // return 0;
+      return 0;
 }
