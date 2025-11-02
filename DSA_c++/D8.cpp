@@ -174,12 +174,12 @@ int main()
       int r = arr4.size();
       int s = arr5.size();
       
-      // shortZeroOneTwo(arr, n);
-      // majorityElement(arr1, m);
-      // kadensalgo(arr2, p);
-      // buysellProblem(arr3, q);
-      // rearrangeArray(arr4, r);
-      // rearrangeArray2(arr5, s);
+      shortZeroOneTwo(arr, n);
+      majorityElement(arr1, m);
+      kadensalgo(arr2, p);
+      buysellProblem(arr3, q);
+      rearrangeArray(arr4, r);
+      rearrangeArray2(arr5, s);
 
       return 0;
 }
