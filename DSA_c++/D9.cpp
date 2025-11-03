@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <bits/stdc++.h>
 #include <algorithm>
 using namespace std;
@@ -114,6 +115,47 @@ void longestElementB(vector<int> &arr, int n){
       cout << ls << endl;
 }
 
+void setMatrixZero(vector<vector<int>> &matrix, int n, int m) {
+      int col0 = 1;
+      
+      for(int i=0; i<n; i++) {
+            for(int j=0; j<m; j++) {
+                  if(matrix[i][j] == 0) {
+                        matrix[i][0] = 0;
+                        matrix[0][j] = 0;
+                  }
+            }
+      }
+
+      for(int i=1; i<n; i++) {
+            for(int j=1; j<m; j++) {
+                  if(matrix[0][j] == 0 || matrix[i][0] == 0) {
+                        if(j != 0) {
+                              matrix[i][j] = 0;
+                        } else {
+                              col0 = 0;
+                        }
+                  }
+            }
+      }
+
+      if(col0 == 0) {
+            for(int i=0; i<n; i++) {
+                  matrix[i][0] = 0;
+            }
+            for(int j=0; j<n; j++) {
+                  matrix[0][j] = 0;
+            }
+      }
+
+      for(auto it : matrix){
+            for(auto newit : it){
+                  cout << newit  << " ";
+            }
+            cout << endl;
+      }
+}
+
 int main()
 {
 
@@ -121,19 +163,21 @@ int main()
       vector<int> arr2 = {10, 22, 12, 3, 0, 6};
       vector<int> arr3 = {100, 4, 200, 1, 3, 2};
       vector<int> arr4 = {5,8,4,3,2,1};
+      vector<vector<int>> matrix = {{1,0,0,1},{1,0,1,1},{1,1,0,1},{0,1,1,1}};
 
       int n = arr.size();
       int o = arr2.size();
       int p = arr3.size();
       int q = arr4.size();
+      int a = matrix.size();
+      int b = matrix[0].size();
 
       nextPermutation(arr, n);
       cout << endl;
       superiorElement(arr2, o);
       cout << endl;
       longestElementBF(arr3, p);
-
       longestElementB(arr4, q);
-
+      setMatrixZero(matrix, a, b);
       return 0;
 }
