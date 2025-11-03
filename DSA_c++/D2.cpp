@@ -73,16 +73,12 @@ int main(){
       int n = sizeof(arr)/sizeof(arr[0]);
 
       countNum(arr, n);
-
       seectionSort(arr, n);
-
       insertionSort(arr, n);
-
       bubbleSort(arr, n);
 
-      for(int i=0; i<n; i++){
+      for(int i=0; i<n; i++){                   // this is used for print the array elements
             cout << arr[i] << " ";
       }
-
       return 0;
 }
