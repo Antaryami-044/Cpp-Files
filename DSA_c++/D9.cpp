@@ -178,6 +178,43 @@ void rotateMatirx(vector<vector<int>> &matrix, int n, int m) {
       }
 }
 
+void spiralMatrix(vector<vector<int>> &matrix, int n, int m) {
+      int top = 0;
+      int left = 0;
+      int right = m-1;
+      int bottom = n-1;
+      vector<int> spiral;
+      while(top <= bottom && left <= right) {
+
+            for(int i=top; i<=right; i++) {
+                  spiral.push_back(matrix[top][i]);
+            }
+            top++;
+
+            for(int j=top; j<=bottom; j++) {
+                  spiral.push_back(matrix[j][right]);
+            }
+            right--;
+            if( top <= bottom) {
+                  for(int i=right; i>=left; i--) {
+                        spiral.push_back(matrix[bottom][i]);
+                  }
+                  bottom--;
+            }
+
+            if(left <= right) {
+                  for(int i=bottom; i>=top; i--) {
+                        spiral.push_back(matrix[i][left]);
+                  }
+                  left++;
+            }
+      }
+
+      for(auto it: spiral) {
+            cout << it <<" ";
+      }
+}
+
 int main()
 {
 
@@ -187,6 +224,7 @@ int main()
       vector<int> arr4 = {5,8,4,3,2,1};
       vector<vector<int>> matrix = {{1,0,0,1},{1,0,1,1},{1,1,0,1},{0,1,1,1}};
       vector<vector<int>> matrix2 = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+      vector<vector<int>> matrix3 = {{1,  2,  3,  4,  5},{14, 15, 16, 17, 6},{13, 20, 19, 18, 7},{12, 11, 10, 9,  8}};
 
       int n = arr.size();
       int o = arr2.size();
@@ -195,13 +233,14 @@ int main()
       int a = matrix.size();
       int b = matrix[0].size();
 
-      // nextPermutation(arr, n);
-      // cout << endl;
-      // superiorElement(arr2, o);
-      // cout << endl;
-      // longestElementBF(arr3, p);
-      // longestElementB(arr4, q);
-      // setMatrixZero(matrix, a, b);
+      nextPermutation(arr, n);
+      cout << endl;
+      superiorElement(arr2, o);
+      cout << endl;
+      longestElementBF(arr3, p);
+      longestElementB(arr4, q);
+      setMatrixZero(matrix, a, b);
       rotateMatirx(matrix2, a, b);              // i use different matrix with smae size , so i donot assign the any size for matrix 2
+      spiralMatrix(matrix3, 4, 5);
       return 0;
 }
