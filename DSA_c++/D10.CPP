@@ -19,10 +19,32 @@ void findAllSubArray(vector<int> &arr, int n, int k) {
       cout << count << endl;
 }
 
+vector<int> Num(int row) {
+      vector<int> res;
+      res.push_back(1);
+      int num = 1;
+      for(int i=1; i<row; i++) {
+            num *= (row-i);
+            num /= i;
+            res.push_back(num);
+      }
+      return res;
+}
 
+void pascleTriangle(int row) {
+      vector<vector<int>> ans;
+      ans.push_back({1});
+      for(int i=1; i<row; i++) {
+            ans.push_back(Num(i+1));
+      }
 
-
-
+      for(auto it: ans) {
+            for( auto i: it){
+                  cout << i << " ";
+            }
+            cout << endl;
+      }
+}
 
 
 int main() {
@@ -34,6 +56,7 @@ int main() {
       int s1 = arr.size();
 
       findAllSubArray(arr, s1, userInput);
+      pascleTriangle(userInput);
 
       return 0;
 }
