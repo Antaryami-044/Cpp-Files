@@ -46,17 +46,61 @@ void pascleTriangle(int row) {
       }
 }
 
+void majorityElement_II (vector<int> &arr, int n) {
+
+      int cnt1 = 0;
+      int el1, el2;
+      int cnt2 = 0;
+      for(int i=0; i<n; i++) {
+
+            if(cnt1 == 0 && arr[i] != el2) {
+                  cnt1 = 1;
+                  el1 = arr[i];
+            } else if (cnt2 == 0 && arr[i] != el2) {
+                  cnt2 = 1;
+                  el2 = arr[i];
+            } else if(el1 == arr[i]) {
+                  cnt1++;
+            } else if(el2 == arr[i]) {
+                  cnt2++;
+            } else {
+                  cnt1--;
+                  cnt2--;
+            }
+      }
+
+      int c1 = 0;
+      int c2 = 0;
+
+      for(int i=0; i<n; i++) {
+            if(el1 == arr[i]) {
+                  c1++;
+            } 
+            if( el2 == arr[i]) {
+                  c2++;
+            }
+      }
+
+      if(c1 > (n/3)) {
+            cout << el1 << endl;
+      }
+      if(c2 > (n/3)) {
+            cout << el2 << endl;
+      }
+}
 
 int main() {
       int userInput;
       cin >> userInput;
 
       vector<int> arr = {1,2,3,-3,1,1,1,4,2,-3};
+      vector<int> arr2 = {1,1,1,1,2,3,3,3,3};
 
       int s1 = arr.size();
 
       findAllSubArray(arr, s1, userInput);
       pascleTriangle(userInput);
+      majorityElement_II(arr2, arr2.size());
 
       return 0;
 }
