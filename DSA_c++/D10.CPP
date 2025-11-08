@@ -89,18 +89,72 @@ void majorityElement_II (vector<int> &arr, int n) {
       }
 }
 
+void ThreeSum_brute(vector<int> arr, int n) {
+
+      vector<vector<int>> result;
+      int pos = 0;
+      for(int i=0; i<n-2; i++){
+            for(int j=i+1; j<n-1; j++) {
+                  for(int k=j+1; k<n; k++) {
+                        if(arr[i] + arr[j] + arr[k] == 0) {
+                              result[pos] = {arr[i], arr[j], arr[k]};
+                              pos++;
+                        }
+                  }
+            }
+      }
+
+      for(auto it: result) {
+            for(auto it2: it) {
+                  cout << it2 << " ";
+            }
+            cout << endl;
+      }
+}
+
+void ThreeSum_better(vector<int> arr, int n) {
+
+      vector<vector<int>> result;
+      set<vector<int>> ans;
+      int k = n-1;
+
+      for(int i=0; i<n; i++) {
+            set<int> hash;
+            for(int j=i+1; j<n; j++) {
+                  int sum = -(arr[i] + arr[j]);
+                  if(hash.find((sum)) != hash.end()) {
+                        vector<int> temp = {arr[i], arr[j], sum};
+                        sort(temp.begin(), temp.end());
+                        result.push_back(temp);
+                  }
+                  hash.insert(arr[j]);
+            }
+      }
+
+
+      for(auto it: result) {
+            for(auto it2: it) {
+                  cout << it2 << " ";
+            }
+            cout << endl;
+      }
+}
+
 int main() {
       int userInput;
-      cin >> userInput;
+      // cin >> userInput;
 
       vector<int> arr = {1,2,3,-3,1,1,1,4,2,-3};
       vector<int> arr2 = {1,1,1,1,2,3,3,3,3};
+      vector<int> arr3 = {-1,0,1,2,-1,-4};
 
       int s1 = arr.size();
 
-      findAllSubArray(arr, s1, userInput);
-      pascleTriangle(userInput);
-      majorityElement_II(arr2, arr2.size());
+      // findAllSubArray(arr, s1, userInput);
+      // pascleTriangle(userInput);
+      // majorityElement_II(arr2, arr2.size());
+      // ThreeSum_brute(arr3,arr3.size());
+      ThreeSum_better(arr3,arr3.size());
 
       return 0;
 }
