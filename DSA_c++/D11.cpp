@@ -195,22 +195,55 @@ void MOE_optimal(vector<vector<int>> &arr, int n) {
       }
 }
 
+void merge2sorted(vector<int> &arr1, vector<int> &arr2, int n, int m) {
+      vector<int> arr3;
+      int i=0, j=0;
+      while(i<n && j<m) {
+            if(arr1[i] < arr2[j]){
+                  arr3.push_back(arr1[i]);
+                  i++;
+            } else {
+                  arr3.push_back(arr2[j]);
+                  j++;
+            }
+      }
+
+      while(i<n){
+            arr3.push_back(arr1[i]);
+            i++;
+      }
+
+      while(j<m){
+            arr3.push_back(arr2[j]);
+            j++;
+      }
+
+      for(auto it: arr3) {
+            cout << it << " ";
+      }
+}
+
 int main()
 {
 
       vector<int> arr1 = {1, 1, -1, 0, 2, -2, 3};
       vector<int> arr2 = {2, 2, 2, 2, 2};
       vector<vector<int>> arr3 = {{4, 3}, {11, 12}, {12, 19}, {1, 5}, {8, 10}};
+      vector<int> arr4 = {4, 5, 6, 7, 8};
+      vector<int> arr5 = {1, 2, 3};
 
       int n = arr1.size();
       int m = arr3.size();
+      int p = arr4.size();
+      int q = arr5.size();
 
-      fourSum_brute(arr1, n, 4);
-      fourSum_better(arr1, n, 4);
-      fourSum_optimal(arr1, n, 4);
-      findSubArrayByXOR(arr1, n, 0);
-      mergeoverlappingIntervals(arr3, m);
-      MOE_optimal(arr3, m);
+      // fourSum_brute(arr1, n, 4);
+      // fourSum_better(arr1, n, 4);
+      // fourSum_optimal(arr1, n, 4);
+      // findSubArrayByXOR(arr1, n, 0);
+      // mergeoverlappingIntervals(arr3, m);
+      // MOE_optimal(arr3, m);
+      merge2sorted(arr4, arr5, p, q);
 
       return 0;
 }
