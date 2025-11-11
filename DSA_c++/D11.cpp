@@ -223,6 +223,30 @@ void merge2sorted(vector<int> &arr1, vector<int> &arr2, int n, int m) {
       }
 }
 
+void mergeoptimal1(vector<int> &arr1, vector<int> &arr2, int n, int m) {
+      int right = 0;
+      int left = n-1;
+      while(right < m && left >= 0) {
+            if(arr1[left] > arr2[right]) {
+                  swap(arr1[left], arr2[right]);
+                  right++;
+                  left--;
+            } else {
+                  break;
+            }
+      }
+      sort(arr1.begin(), arr1.end());
+      sort(arr2.begin(), arr2.end());
+
+      for(auto it: arr1) {
+            cout << it << " ";
+      }
+
+      for(auto it: arr2) {
+            cout << it << " ";
+      }
+}
+
 int main()
 {
 
@@ -243,7 +267,8 @@ int main()
       // findSubArrayByXOR(arr1, n, 0);
       // mergeoverlappingIntervals(arr3, m);
       // MOE_optimal(arr3, m);
-      merge2sorted(arr4, arr5, p, q);
+      // merge2sorted(arr4, arr5, p, q);
+      mergeoptimal1(arr4, arr5, p, q);
 
       return 0;
 }
