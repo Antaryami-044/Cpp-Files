@@ -205,11 +205,11 @@ int main()
       int n = arr1.size();
       int m = arr3.size();
 
-      // fourSum_brute(arr1, n, 4);
-      // fourSum_better(arr1, n, 4);
-      // fourSum_optimal(arr1, n, 4);
-      // findSubArrayByXOR(arr1, n, 0);
-      // mergeoverlappingIntervals(arr3, m);
+      fourSum_brute(arr1, n, 4);
+      fourSum_better(arr1, n, 4);
+      fourSum_optimal(arr1, n, 4);
+      findSubArrayByXOR(arr1, n, 0);
+      mergeoverlappingIntervals(arr3, m);
       MOE_optimal(arr3, m);
 
       return 0;
