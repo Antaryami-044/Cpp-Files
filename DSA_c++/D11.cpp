@@ -177,8 +177,22 @@ void mergeoverlappingIntervals(vector<vector<int>> &arr, int n)
       }
 }
 
-void MOE_optimal() {
-      
+void MOE_optimal(vector<vector<int>> &arr, int n) {
+      vector<vector<int>> ans;
+      sort(arr.begin(), arr.end());
+      for(int i=0; i<n; i++) {
+            if(ans.empty() || arr[i][0] > ans.back()[1]) {
+                  ans.push_back(arr[i]);
+            } else {
+                  ans.back()[1] = max(ans.back()[1], arr[i][1]);
+            }
+      }
+      for(auto it: ans) {
+            for(auto ele:it) {
+                  cout << ele << " ";
+            }
+            cout << endl;
+      }
 }
 
 int main()
@@ -186,7 +200,7 @@ int main()
 
       vector<int> arr1 = {1, 1, -1, 0, 2, -2, 3};
       vector<int> arr2 = {2, 2, 2, 2, 2};
-      vector<vector<int>> arr3 = {{4, 3}, {1, 0}, {0, 5}, {-1, -2}, {-3, -4}};
+      vector<vector<int>> arr3 = {{4, 3}, {11, 12}, {12, 19}, {1, 5}, {8, 10}};
 
       int n = arr1.size();
       int m = arr3.size();
@@ -195,7 +209,8 @@ int main()
       // fourSum_better(arr1, n, 4);
       // fourSum_optimal(arr1, n, 4);
       // findSubArrayByXOR(arr1, n, 0);
-      mergeoverlappingIntervals(arr3, m);
+      // mergeoverlappingIntervals(arr3, m);
+      MOE_optimal(arr3, m);
 
       return 0;
 }
