@@ -247,6 +247,45 @@ void mergeoptimal1(vector<int> &arr1, vector<int> &arr2, int n, int m) {
       }
 }
 
+void mergeoptimal2(vector<int> &arr1, vector<int> &arr2, int n,int m) {
+      int gap = (n + m) / 2 + (n + m) % 2;
+      while(gap > 0) {
+            int left = 0;
+            int right = left + gap;
+            while(left < m + n && right < m + n) {
+                  if(left < n && right >= n) {
+                        if(arr1[left] > arr2[right - n]) {
+                              swap(arr1[left], arr2[right - n]);
+                        }
+
+                  } else if(left >= n) {
+                        if(arr2[left - n] > arr2[right - n]) {
+                              swap(arr1[left - n], arr2[right - n]);
+                        }
+
+                  } else {
+                        if(arr1[left] > arr1[right]) {
+                              swap(arr1[left], arr1[right]);
+                        }
+                  }
+                  left++;
+                  right++;
+            }
+            if(gap == 1) {
+                  break;
+            } else {
+                  gap = (gap / 2) + (gap % 2);
+            }
+      }
+
+      for(auto it: arr1) {
+            cout << it << " ";
+      }
+      for(auto it: arr2) {
+            cout << it << " ";
+      }
+}
+
 int main()
 {
 
@@ -268,7 +307,9 @@ int main()
       // mergeoverlappingIntervals(arr3, m);
       // MOE_optimal(arr3, m);
       // merge2sorted(arr4, arr5, p, q);
-      mergeoptimal1(arr4, arr5, p, q);
+      // mergeoptimal1(arr4, arr5, p, q);
+      mergeoptimal2(arr4, arr5, p, q);
+
 
       return 0;
 }
