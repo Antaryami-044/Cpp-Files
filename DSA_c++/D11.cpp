@@ -260,7 +260,7 @@ void mergeoptimal2(vector<int> &arr1, vector<int> &arr2, int n,int m) {
 
                   } else if(left >= n) {
                         if(arr2[left - n] > arr2[right - n]) {
-                              swap(arr1[left - n], arr2[right - n]);
+                              swap(arr2[left - n], arr2[right - n]);
                         }
 
                   } else {
