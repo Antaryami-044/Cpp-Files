@@ -111,21 +111,71 @@ void FNM3(vector<int> & arr, int n) {
 
 }
 
+int mixing(vector<int> &arr, int l, int mid, int r) {
+      int  n1 = mid -l +1;
+      int n2 = r - mid;
+
+      int left[n1], right[n2];
+
+      for(int i=0; i<n1; i++) {
+            left[i] = arr[l+1];
+      }
+
+      for(int j=0; j<n2; j++) {
+            right[j] = arr[mid+1+j];
+      }
+
+      int i=0, j=0, k=l;
+      int cnt = 0;
+      while(i<n1 && j<n2) {
+            if(left[i] <= right[j]) {
+                  arr[k++] = left[i++];
+            } else {
+                  arr[k++] = right[j++];
+                  cnt += (n1 - i);
+            }            
+      }
+
+      while(i <n1) {
+            arr[k++] = left[i++];
+      }
+
+      while(j<n2) {
+            arr[k++] = right[j++];
+      }
+      return cnt;
+}
+
+int mergesort(vector<int> &arr, int l, int r) {
+      int cnt = 0;
+      if(l >= r) {
+            return cnt;
+      }
+      int mid = (l+r) / 2;
+      cnt += mergesort(arr, l, mid);
+      cnt += mergesort(arr, mid+1, r);
+      cnt += mixing(arr, l, mid, r);
+
+      return cnt;
+}
+
 int countInversions(vector<int> &arr, int n) {
       int cnt = 0;
-      mergesort(arr, 0 , n-1);
-      merge
+      return mergesort(arr, 0 , n-1);
 }
 
 int main() {
 
       vector<int> arr = {1, 1, 3, 4, 6, 2};
+      vector<int> arr2 = {1, 5, 2, 6, 3, 4};
 
       int n = arr.size();
+      int m = arr2.size();
 
       // find_missing_Number(arr, n);
       // FMN2(arr, n);
-      FNM3(arr, n);
+      // FNM3(arr, n);
+      cout << "Count of Inversions is: " << countInversions(arr2, m) << endl;
 
       return 0;
 }
