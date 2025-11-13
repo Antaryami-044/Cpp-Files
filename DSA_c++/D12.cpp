@@ -172,9 +172,9 @@ int main() {
       int n = arr.size();
       int m = arr2.size();
 
-      // find_missing_Number(arr, n);
-      // FMN2(arr, n);
-      // FNM3(arr, n);
+      find_missing_Number(arr, n);
+      FMN2(arr, n);
+      FNM3(arr, n);
       cout << "Count of Inversions is: " << countInversions(arr2, m) << endl;
 
       return 0;
