@@ -111,6 +111,12 @@ void FNM3(vector<int> & arr, int n) {
 
 }
 
+int countInversions(vector<int> &arr, int n) {
+      int cnt = 0;
+      mergesort(arr, 0 , n-1);
+      merge
+}
+
 int main() {
 
       vector<int> arr = {1, 1, 3, 4, 6, 2};

@@ -58,7 +58,6 @@ void longestSubArr3(vector<int> &arr, int n, int k){
       cout<<len<<endl;
 }
 
-
 void twoSum(vector<int> &arr, int n, int k){
       map<int, int> m;
       for(int i=0; i<n; i++){
