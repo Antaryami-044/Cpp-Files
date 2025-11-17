@@ -52,14 +52,37 @@ int mergesort(vector<int> &arr, int l, int r) {
       return cnt;
 }
 
+void productsubarray(vector<int> &arr) {
+      int n = arr.size();
+      int maxProduct = INT16_MIN;
+      int product = 1;
+      int prefix = 1;
+      int suffix = 1;
+
+      for(int i=0; i<n; i++) {
+
+            prefix *= arr[i];
+            suffix *= arr[n-i-1];
+
+            maxProduct = max(maxProduct, max(prefix, suffix));
+            if(prefix == 0) prefix = 1;
+            if(suffix == 0) suffix = 1;
+      }
+      cout << "The maximum product of subarray is: " << maxProduct << endl;
+}
+
 
 int main() {
       vector<int> arr = {23, 11, 5, 3};
+      vector<int> arr1 = {2,3,-2,4, -1};
 
       int n = arr.size();
+      int m = arr1.size();
 
       int result = mergesort(arr, 0 , n-1);
+      productsubarray(arr1);
 
       cout << "The number of important reverse pairs are: " << result << endl;
+
       return 0;
 }
