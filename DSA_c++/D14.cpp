@@ -34,15 +34,35 @@ int upperBound(vector<int> &arr, int target) {
       return ans;
 }
 
+int floorCelliProblem(vector<int> &arr, int target) {
+      int low = 0, high = arr.size() - 1;
+      int ans = -1;
+      while(low <= high) {
+            int mid = low + (high - low) / 2;
+            if(arr[mid] <= target) {
+                  ans = arr[mid];
+                  low = mid + 1;
+            }
+            else {
+                  high = mid - 1;
+            }
+      }
+      return ans;
+}
+
 int main() {
       vector<int> arr = {1, 3, 3, 5, 7, 9};
+      vector<int> arr2 = {1, 2, 4, 6, 8, 10};
       int target = 3;
+      int target2 = 5;
 
       int index = lowerBound(arr, target);
       int index2 = upperBound(arr, target);
+      int floorValue = floorCelliProblem(arr2, target2);
 
       cout << "The lower bound index of " << target << " is: " << index << endl; 
       cout << "The upper bound index of " << target << " is: " << index2 << endl;   
+      cout << "The floor value of " << target2 << " is: " << floorValue << endl;
 
       return 0;
 }
